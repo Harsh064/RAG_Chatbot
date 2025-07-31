@@ -2,7 +2,7 @@
 
 Chat with your PDFS using **natural language**! 
 
-    - This AI-powered agent understands user queries from natural language
+    - This AI-powered RAG chatbot by which we can chat with PDFS in natural language
 
     - A Retrieval-Augmented Generation (RAG) chatbot built using Streamlit, LangChain, Gemini (Google Generative AI), and Hugging Face Embeddings. Upload PDF documents, process their content into vector embeddings, and interact with the chatbot to get context-aware answers based on your files.
 
