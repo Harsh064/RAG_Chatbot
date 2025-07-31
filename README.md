@@ -6,9 +6,11 @@ Chat with your PDFS using **natural language**!
 
     - A Retrieval-Augmented Generation (RAG) chatbot built using Streamlit, LangChain, Gemini (Google Generative AI), and Hugging Face Embeddings. Upload PDF documents, process their content into vector embeddings, and interact with the chatbot to get context-aware answers based on your files.
 
-    - Loom Videos to show working model: 
-            1. https://www.loom.com/share/a3fae6c6d67a4346b8a15d4b1b5a0633?sid=62697a53-819a-4e3f-8d93-b6d104d5bf33
-            2. https://www.loom.com/share/ae4291976e5e42c7978908b7ef3be8d3?sid=e57197a6-d41c-419b-ace0-b6903830feaf
+    - Loom Videos to show :
+
+            1.Working Demo -  https://www.loom.com/share/bba5d7b291674445abf7587d6f842c60?sid=727cd8c2-e0c8-4f73-823a-33743e7d9ac8
+
+            2. Code Approach Explanation : https://www.loom.com/share/1a428f45e3b8448a9e50e98342362357?sid=f6b81dc1-711c-42cd-ae3a-8c85e5e532dc
 
 ---
 
@@ -118,4 +120,24 @@ Stored in a `.env` file:
 - HF_TOKEN=your-huggingface-api-key
 
 ---
+## 🧰 Libraries Used & Why
 
+| Library | Purpose |
+|--------|---------|
+| `streamlit` | Web interface for interacting with the chatbot |
+| `dotenv` | Loads environment variables (like API keys) from `.env` file |
+| `PyPDF2` | Reads and extracts text from PDF files |
+| `langchain_text_splitters.CharacterTextSplitter` | Splits text into smaller overlapping chunks for better processing |
+| `langchain_huggingface.embeddings.HuggingFaceEndpointEmbeddings` | Connects to Hugging Face Inference API to get embeddings (text → vector) |
+| `langchain_community.vectorstores.FAISS` | Stores and searches the text vectors using Facebook’s FAISS |
+| `langchain_google_genai.ChatGoogleGenerativeAI` | Gemini (Google) LLM to generate answers from the text |
+| `langchain_core.messages` | Structures the chat (e.g., `HumanMessage`, `AIMessage`) |
+| `langchain_core.prompts.ChatPromptTemplate` | Template for how the question and context are passed to the model |
+| `langchain_core.runnables` | Builds modular chain components |
+| `langchain_core.runnables.history.RunnableWithMessageHistory` | Adds session memory to keep chat history |
+| `langchain.chains.combine_documents.create_stuff_documents_chain` | Combines retrieved documents and uses them to answer questions |
+| `langchain.chains.create_retrieval_chain` | Combines retriever and LLM to form the RAG chain |
+| `langchain_community.chat_message_histories.ChatMessageHistory` | Stores the message history in memory |
+| `htmlTemplates` | Contains CSS and HTML templates for bot and user messages in the UI |
+
+---
